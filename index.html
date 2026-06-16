@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#030304" />
+    <title>写给你</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <audio id="background-music" src="media/marry.mp3" preload="auto" loop></audio>
+    <button id="music-toggle" class="music-toggle" type="button" aria-label="播放音乐" title="播放音乐">
+      <span class="music-icon" aria-hidden="true">♪</span>
+      <span class="music-label">准备中</span>
+    </button>
+    <main id="app">
+      <section id="countdown-screen" class="screen active" aria-live="polite">
+        <div class="countdown-wrap">
+          <p class="eyebrow">有一份只属于你的礼物</p>
+          <div id="countdown" class="countdown" aria-label="倒数计时">5</div>
+          <button id="start-experience" class="start-experience" type="button">轻触开启惊喜</button>
+          <p class="whisper">请把声音打开，慢慢看</p>
+        </div>
+      </section>
+
+      <section id="password-screen" class="screen" aria-labelledby="password-title">
+        <div class="password-card">
+          <div class="tiny-heart" aria-hidden="true">♥</div>
+          <p class="eyebrow">只有你知道答案</p>
+          <h1 id="password-title">我们的纪念日</h1>
+          <p class="date-format">MM / DD</p>
+          <form id="password-form" novalidate>
+            <label class="sr-only" for="password">请输入四位纪念日密码</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              inputmode="numeric"
+              maxlength="4"
+              pattern="[0-9]{4}"
+              autocomplete="off"
+              placeholder="••••"
+              aria-describedby="password-message"
+            />
+            <button type="submit">打开礼物</button>
+            <p id="password-message" class="message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="heart-screen" class="screen" aria-labelledby="heart-title">
+        <div class="heart-stage">
+          <p class="eyebrow">密码正确</p>
+          <h1 id="heart-title">你打开了我的心</h1>
+          <button id="heart-button" class="heart-button" type="button" aria-label="点击爱心，打开我们的回忆录">
+            <span class="heart-pulse" aria-hidden="true">
+              <span class="heart-wave heart-wave-4">♥</span>
+              <span class="heart-wave heart-wave-3">♥</span>
+              <span class="heart-wave heart-wave-2">♥</span>
+              <span class="heart-wave heart-wave-1">♥</span>
+              <span class="heart-core">♥</span>
+            </span>
+          </button>
+          <p class="tap-hint">再点一下爱心</p>
+        </div>
+      </section>
+
+      <section id="memoir-screen" class="memoir" aria-labelledby="memoir-title">
+        <header class="memoir-hero">
+          <div class="stars" aria-hidden="true"></div>
+          <div class="hero-copy">
+            <p class="eyebrow">OUR STORY</p>
+            <h1 id="memoir-title">我们的回忆录</h1>
+            <p class="hero-subtitle">故事不长，也不难讲。大概就是，遇见你以后，我开始期待每一个明天。</p>
+            <button id="start-story" class="scroll-button" type="button">从相遇开始</button>
+          </div>
+        </header>
+
+        <div class="story-wrap">
+          <div class="story-intro">
+            <p>Some memories never fade.</p>
+            <h2>把我们走过的日子<br />一页一页收藏起来</h2>
+          </div>
+
+          <div id="memory-list" class="memory-list"></div>
+
+          <footer class="love-letter">
+            <span class="letter-mark">♥</span>
+            <p class="future-copy">走到这里，收藏的是我们已经拥有的故事。<br />而我更期待的，是那些还没有发生的以后。</p>
+            <h2>我想和你<br />拥有更多故事</h2>
+            <p>想陪你去更多地方，看更多风景，<br />一起经历热闹，也一起度过平凡。<br />希望未来每一段值得纪念的日子里，都还有你，也还有我。</p>
+            <p class="promise">这本回忆录没有结尾，<br />因为我们的下一页，才刚刚开始。</p>
+            <p class="signature">爱你的我</p>
+            <button id="back-to-heart" class="text-button" type="button">再看一次心跳</button>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
